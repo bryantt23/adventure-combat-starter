@@ -150,7 +150,6 @@ describe('Enemy', function () {
     expect(enemy instanceof Player).to.be.false;
   });
 
-  /*
   it('should have a cooldown attribute that defaults to 3000ms', function () {
     expect(enemy.cooldown).to.equal(3000);
   });
@@ -169,6 +168,7 @@ describe('Enemy', function () {
     expect(enemy.cooldown).above(0);
   });
 
+  /*
   it('should target the player when hit', function () {
     expect(enemy.attackTarget).to.equal(null);
 

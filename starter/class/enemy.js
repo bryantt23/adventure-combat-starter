@@ -1,9 +1,12 @@
 const { Character } = require('./character');
 
+const COOL_DOWN_TIME = 3000;
+
 class Enemy extends Character {
   constructor(name, description, currentRoom) {
     // Fill this in
     super(name, description, currentRoom);
+    this.cooldown = COOL_DOWN_TIME;
   }
 
   setPlayer(player) {
@@ -12,6 +15,15 @@ class Enemy extends Character {
 
   randomMove() {
     // Fill this in
+    const dirs = ['n', 's', 'e', 'w'];
+    for (const dir of dirs) {
+      const room = this.currentRoom.exits[dir];
+      if (room) {
+        this.currentRoom = room;
+        this.cooldown = COOL_DOWN_TIME;
+        return room;
+      }
+    }
   }
 
   takeSandwich() {
