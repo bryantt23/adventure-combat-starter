@@ -52,37 +52,35 @@ describe('Character', function () {
     expect(room.items[0]).to.equal(item);
   });
 
-  // it('should die when damage brings health to 0 or less', function () {
-  //   expect(character.currentRoom).to.equal(room);
-  //   expect(room.items.length).to.equal(0);
+  it('should die when damage brings health to 0 or less', function () {
+    expect(character.currentRoom).to.equal(room);
+    expect(room.items.length).to.equal(0);
 
-  //   expect(character.health).to.equal(100);
-  //   character.applyDamage(100);
-  //   expect(character.health).to.equal(0);
+    expect(character.health).to.equal(100);
+    character.applyDamage(100);
+    expect(character.health).to.equal(0);
 
-  //   expect(character.currentRoom).to.equal(null);
-  //   expect(room.items.length).to.equal(1);
-  //   expect(room.items[0]).to.equal(item);
-  // });
+    expect(character.currentRoom).to.equal(null);
+    expect(room.items.length).to.equal(1);
+    expect(room.items[0]).to.equal(item);
+  });
 });
 
-/*
-describe ('Enemy', function () {
-
+describe('Enemy', function () {
   let player;
   let enemy;
   let room;
   let item;
 
-  beforeEach(function() {
-    room =  new Room("Test Room", "A test room");
-    item = new Item("rock", "just a simple rock");
+  beforeEach(function () {
+    room = new Room('Test Room', 'A test room');
+    item = new Item('rock', 'just a simple rock');
     character = new Character('Character', 'an ordinary character', room);
     character.items.push(item);
   });
 
   it('should have name and description attributes', function () {
-    expect(character.name).to.equal("Character");
+    expect(character.name).to.equal('Character');
     expect(character.description).to.equal('an ordinary character');
   });
 
@@ -123,25 +121,21 @@ describe ('Enemy', function () {
     expect(room.items.length).to.equal(1);
     expect(room.items[0]).to.equal(item);
   });
-
 });
 
-
-
-describe ('Enemy', function () {
-
+describe('Enemy', function () {
   let enemy;
   let room;
   let item;
   let sandwich;
   let player;
 
-  beforeEach(function() {
-    room = new Room("Test Room", "A test room");
-    item = new Item("rock", "just a simple rock");
-    sandwich = new Food("sandwich", "a delicious looking sandwich");
+  beforeEach(function () {
+    room = new Room('Test Room', 'A test room');
+    item = new Item('rock', 'just a simple rock');
+    sandwich = new Food('sandwich', 'a delicious looking sandwich');
     enemy = new Enemy('enemy', 'an ordinary character', room);
-    player = new Player("player", room);
+    player = new Player('player', room);
 
     World.enemies.push(enemy);
     World.setPlayer(player);
@@ -150,22 +144,18 @@ describe ('Enemy', function () {
     room.items.push(sandwich);
   });
 
-
   it('should inherit from Character class', function () {
     expect(enemy instanceof Character).to.be.true;
     expect(enemy instanceof Enemy).to.be.true;
     expect(enemy instanceof Player).to.be.false;
   });
 
-
   it('should have a cooldown attribute that defaults to 3000ms', function () {
     expect(enemy.cooldown).to.equal(3000);
   });
 
-
   it('should be able to move to a new room', function () {
-
-    let westRoom = new Room("West Room", "A room to the west of testRoom");
+    let westRoom = new Room('West Room', 'A room to the west of testRoom');
     room.connectRooms('w', westRoom);
 
     enemy.cooldown = 0;
@@ -178,9 +168,7 @@ describe ('Enemy', function () {
     expect(enemy.cooldown).above(0);
   });
 
-
   it('should target the player when hit', function () {
-
     expect(enemy.attackTarget).to.equal(null);
 
     player.hit('enemy');
@@ -188,9 +176,7 @@ describe ('Enemy', function () {
     expect(enemy.attackTarget).to.equal(player);
   });
 
-
   it('should attack the player when targetting player', function () {
-
     player.hit('enemy');
 
     enemy.cooldown = 0;
@@ -199,9 +185,5 @@ describe ('Enemy', function () {
     enemy.attack();
     expect(player.health).to.equal(90);
     expect(enemy.cooldown).above(0);
-
   });
-
 });
-
-*/
