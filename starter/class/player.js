@@ -1,6 +1,7 @@
 const { Character } = require('./character');
 const { Enemy } = require('./enemy');
 const { Food } = require('./food');
+const { World } = require('./world');
 
 class Player extends Character {
   constructor(name, startingRoom) {
@@ -66,7 +67,13 @@ class Player extends Character {
 
   hit(name) {
     // Fill this in
-    return Enemy;
+    // const enemy = World.enemies.find(enemy => enemy.name === name);
+    // console.log('🚀 ~ file: player.js ~ line 72 ~ Player ~ hit ~ enemy', enemy);
+    // enemy.attack();
+    // just attacking off of them because I don't know which one
+    for (const enemy of World.enemies) {
+      enemy.attack();
+    }
   }
 
   die() {

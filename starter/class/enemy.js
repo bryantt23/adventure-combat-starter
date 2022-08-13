@@ -50,6 +50,7 @@ class Enemy extends Character {
 
   attack() {
     // Fill this in
+    this.attackTarget = this.player;
   }
 
   applyDamage(amount) {
