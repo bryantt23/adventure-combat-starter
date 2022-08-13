@@ -1,5 +1,4 @@
 class Room {
-
   constructor(name, description) {
     this.name = name;
     this.description = description;
@@ -14,19 +13,23 @@ class Room {
 
   printRoom() {
     console.clear();
-    console.log("");
+    console.log('');
     console.log(this.name);
-    console.log("");
+    console.log('');
     console.log(this.description);
-    console.log("");
+    console.log('');
     if (this.getEnemies().length > 0) {
-      console.log(`Enemies: ${this.getEnemies().map(enemy => enemy.name).join(", ")}`);
+      console.log(
+        `Enemies: ${this.getEnemies()
+          .map(enemy => enemy.name)
+          .join(', ')}`
+      );
     }
     if (this.items.length > 0) {
-      console.log(`Items: ${this.items.map(item => item.name).join(", ")}`);
+      console.log(`Items: ${this.items.map(item => item.name).join(', ')}`);
     }
     console.log(this.getExitsString());
-    console.log("");
+    console.log('');
   }
 
   getExits() {
@@ -34,14 +37,13 @@ class Room {
   }
 
   getExitsString() {
-    return `Exits: ${this.getExits().join(", ")}`
+    return `Exits: ${this.getExits().join(', ')}`;
   }
 
   connectRooms(direction, connectingRoom) {
-
     // Check if the direction and connecting room are valid
     if (['n', 's', 'e', 'w'].indexOf(direction) < 0 || !connectingRoom) {
-      throw new Error("Error: Invalid room connection");
+      throw new Error('Error: Invalid room connection');
     }
 
     this.exits[direction] = connectingRoom;
@@ -52,17 +54,14 @@ class Room {
   }
 
   getItemByName(name) {
-
     // Fill this in
-
   }
 
   getEnemyByName(name) {
-
     // Fill this in
-
+  }
 }
 
 module.exports = {
-  Room,
+  Room
 };
