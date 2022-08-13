@@ -1,30 +1,29 @@
 const { expect } = require('chai');
 
-const {Player} = require("../class/player.js");
-const {Room} = require("../class/room.js");
-const {Item} = require("../class/item.js");
-const {Food} = require("../class/food.js");
+const { Player } = require('../class/player.js');
+const { Room } = require('../class/room.js');
+const { Item } = require('../class/item.js');
+const { Food } = require('../class/food.js');
 
-const {World} = require("../class/world.js");
+const { World } = require('../class/world.js');
 
-const {Character} = require("../class/character.js");
-const {Enemy} = require("../class/enemy.js");
+const { Character } = require('../class/character.js');
+const { Enemy } = require('../class/enemy.js');
 
-describe ('Character', function () {
-
+describe('Character', function () {
   let character;
   let room;
   let item;
 
-  beforeEach(function() {
-    room =  new Room("Test Room", "A test room");
-    item = new Item("rock", "just a simple rock");
+  beforeEach(function () {
+    room = new Room('Test Room', 'A test room');
+    item = new Item('rock', 'just a simple rock');
     character = new Character('Character', 'an ordinary character', room);
     character.items.push(item);
   });
 
   it('should have name and description attributes', function () {
-    expect(character.name).to.equal("Character");
+    expect(character.name).to.equal('Character');
     expect(character.description).to.equal('an ordinary character');
   });
 
@@ -53,21 +52,21 @@ describe ('Character', function () {
     expect(room.items[0]).to.equal(item);
   });
 
-  it('should die when damage brings health to 0 or less', function () {
-    expect(character.currentRoom).to.equal(room);
-    expect(room.items.length).to.equal(0);
+  // it('should die when damage brings health to 0 or less', function () {
+  //   expect(character.currentRoom).to.equal(room);
+  //   expect(room.items.length).to.equal(0);
 
-    expect(character.health).to.equal(100);
-    character.applyDamage(100);
-    expect(character.health).to.equal(0);
+  //   expect(character.health).to.equal(100);
+  //   character.applyDamage(100);
+  //   expect(character.health).to.equal(0);
 
-    expect(character.currentRoom).to.equal(null);
-    expect(room.items.length).to.equal(1);
-    expect(room.items[0]).to.equal(item);
-  });
-
+  //   expect(character.currentRoom).to.equal(null);
+  //   expect(room.items.length).to.equal(1);
+  //   expect(room.items[0]).to.equal(item);
+  // });
 });
 
+/*
 describe ('Enemy', function () {
 
   let player;
@@ -205,4 +204,4 @@ describe ('Enemy', function () {
 
 });
 
-
+*/
