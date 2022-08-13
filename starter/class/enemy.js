@@ -1,4 +1,5 @@
 const { Character } = require('./character');
+const { World } = require('./world');
 
 const COOL_DOWN_TIME = 3000;
 
@@ -7,6 +8,7 @@ class Enemy extends Character {
     // Fill this in
     super(name, description, currentRoom);
     this.cooldown = COOL_DOWN_TIME;
+    this.attackTarget = null;
   }
 
   setPlayer(player) {
